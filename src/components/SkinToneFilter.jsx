@@ -18,7 +18,7 @@ const SkinToneFilter = () => {
 
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:5000/upload", formData);
+      const res = await axios.post("hhttps://beckendglowhue.up.railway.app/upload", formData);
       setSessionId(res.data.session_id);
       setPreview(res.data.url);
     } catch (error) {
@@ -33,7 +33,7 @@ const SkinToneFilter = () => {
     
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:5000/reset_color", {
+      const res = await axios.post("https://beckendglowhue.up.railway.app/reset_color", {
         session_id: sessionId
       });
       setPreview(res.data.original_url);
@@ -54,7 +54,7 @@ const SkinToneFilter = () => {
     
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:5000/apply_color", {
+      const res = await axios.post("https://beckendglowhue.up.railway.app/apply_color", {
         color: hexColor,
         session_id: sessionId
       });
@@ -63,7 +63,7 @@ const SkinToneFilter = () => {
       setPreview(res.data.result_url);
 
       // Get recommendations
-      const recRes = await axios.post("http://localhost:5000/get_recommendations", {
+      const recRes = await axios.post("https://beckendglowhue.up.railway.app/get_recommendations", {
         skin_tone: hexColor
       });
       

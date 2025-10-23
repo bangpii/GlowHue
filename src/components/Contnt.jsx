@@ -22,7 +22,7 @@ const Contnt = ({ scaleMobile = 1, onGetRecommendations, recommendations, onRese
 
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/upload", {
+      const res = await fetch("https://beckendglowhue.up.railway.app/upload", {
         method: "POST",
         body: formData,
       });
@@ -58,7 +58,7 @@ const Contnt = ({ scaleMobile = 1, onGetRecommendations, recommendations, onRese
     
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/apply_color", {
+      const res = await fetch("https://beckendglowhue.up.railway.app/apply_color", {
         method: "POST",
         headers: { 
           "Content-Type": "application/json" 
@@ -92,7 +92,7 @@ const Contnt = ({ scaleMobile = 1, onGetRecommendations, recommendations, onRese
 
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/reset_color", {
+      const res = await fetch("https://beckendglowhue.up.railway.app/reset_color", {
         method: "POST",
         headers: { 
           "Content-Type": "application/json" 

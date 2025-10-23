@@ -12,7 +12,7 @@ const Tablet = () => {
   // Fungsi untuk mendapatkan rekomendasi dari backend
   const getSkinRecommendations = async (skinTone, undertone) => {
     try {
-      const response = await fetch('http://localhost:5000/get_skin_recommendations', {
+      const response = await fetch('https://beckendglowhue.up.railway.app/get_skin_recommendations', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
