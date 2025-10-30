@@ -12,6 +12,9 @@ const Contnt = ({ scaleMobile = 1, onGetRecommendations, recommendations, onRese
   const [currentSkinTone, setCurrentSkinTone] = useState(null);
   const [hasUploaded, setHasUploaded] = useState(false);
 
+  // URL backend production
+  const BACKEND_URL = "https://web-production-480f.up.railway.app";
+
   // Upload ke backend Flask
   const handleUpload = async (e) => {
     e.preventDefault();
@@ -22,7 +25,7 @@ const Contnt = ({ scaleMobile = 1, onGetRecommendations, recommendations, onRese
 
     setLoading(true);
     try {
-      const res = await fetch("https://beckendglowhue.up.railway.app/upload", {
+      const res = await fetch(`${BACKEND_URL}/upload`, {
         method: "POST",
         body: formData,
       });
@@ -31,7 +34,7 @@ const Contnt = ({ scaleMobile = 1, onGetRecommendations, recommendations, onRese
       console.log("Upload response:", data);
       
       if (res.ok) {
-        setMessage("Foto berhasil diupload!"); // Pesan lebih sederhana
+        setMessage("Foto berhasil diupload!");
         setPreview(data.url);
         setSessionId(data.session_id);
         setHasUploaded(true);
@@ -58,7 +61,7 @@ const Contnt = ({ scaleMobile = 1, onGetRecommendations, recommendations, onRese
     
     setLoading(true);
     try {
-      const res = await fetch("https://beckendglowhue.up.railway.app/apply_color", {
+      const res = await fetch(`${BACKEND_URL}/apply_color`, {
         method: "POST",
         headers: { 
           "Content-Type": "application/json" 
@@ -92,7 +95,7 @@ const Contnt = ({ scaleMobile = 1, onGetRecommendations, recommendations, onRese
 
     setLoading(true);
     try {
-      const res = await fetch("https://beckendglowhue.up.railway.app/reset_color", {
+      const res = await fetch(`${BACKEND_URL}/reset_color`, {
         method: "POST",
         headers: { 
           "Content-Type": "application/json" 
@@ -228,8 +231,6 @@ const Contnt = ({ scaleMobile = 1, onGetRecommendations, recommendations, onRese
           </button>
         </div>
       )}
-
-      {/* Hapus debug info session ID */}
 
       {/* Instruction message sebelum upload */}
       {!hasUploaded && (
